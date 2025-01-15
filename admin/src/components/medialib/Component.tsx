@@ -1,8 +1,7 @@
-import * as React from "react";
-import type { Schema } from "@strapi/types";
+import * as React from 'react';
 // @ts-ignore
+import { useStrapiApp } from '@strapi/strapi/admin';
 import prefixFileUrlWithBackendUrl from '../legacy-helper-plugin/prefixFileUrlWithBackendUrl';
-import { useStrapiApp } from "@strapi/strapi/admin";
 
 interface IMediaLibComponent {
   isOpen: boolean;
@@ -31,7 +30,7 @@ export const MediaLibComponent: React.FC<IMediaLibComponent> = ({
 }) => {
   const { components }: any = useStrapiApp('library', (app) => app);
   const [data, setData] = React.useState<FormattedMediaFile[] | null>(null);
-  const MediaLibraryDialog = components["media-library"] as React.ComponentType<any>;
+  const MediaLibraryDialog = components['media-library'] as React.ComponentType<any>;
 
   const handleInputChange = (files: FormattedMediaFile[]) => {
     if (files) {

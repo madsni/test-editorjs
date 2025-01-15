@@ -33,21 +33,16 @@ type ChangeFuncParams = {
   index: number;
 };
 
-export const changeFunc = ({
-  indexStateSetter,
-  editor,
-  data,
-  index,
-}: ChangeFuncParams): void => {
+export const changeFunc = ({ indexStateSetter, editor, data, index }: ChangeFuncParams): void => {
   let insertedBlocksCount = 0;
   data.forEach((entry) => {
-    if (!entry.mime.includes("image")) {
+    if (!entry.mime.includes('image')) {
       return;
     }
-    const newBlockType = "image";
+    const newBlockType = 'image';
     const newBlockData = {
       file: {
-        url: entry.url.replace(window.location.origin, ""),
+        url: entry.url.replace(window.location.origin, ''),
         mime: entry.mime,
         height: entry.height,
         width: entry.width,
@@ -55,19 +50,13 @@ export const changeFunc = ({
         alt: entry.alt,
         formats: entry.formats,
       },
-      caption: "",
+      caption: '',
       withBorder: false,
       withBackground: false,
       stretched: false,
     };
 
-    editor.blocks.insert(
-      newBlockType,
-      newBlockData,
-      {},
-      index + insertedBlocksCount,
-      true
-    );
+    editor.blocks.insert(newBlockType, newBlockData, {}, index + insertedBlocksCount, true);
     insertedBlocksCount++;
   });
 
@@ -83,10 +72,10 @@ export const changeFuncAttaches = ({
 }: ChangeFuncParams): void => {
   let insertedBlocksCount = 0;
   data.forEach((entry) => {
-    const newBlockType = "attaches";
+    const newBlockType = 'attaches';
     const newBlockData = {
       file: {
-        url: entry.url.replace(window.location.origin, ""),
+        url: entry.url.replace(window.location.origin, ''),
         size: entry.size * 1024,
         name: entry.name,
         extension: entry.ext,
@@ -94,13 +83,7 @@ export const changeFuncAttaches = ({
       title: entry.alt,
     };
 
-    editor.blocks.insert(
-      newBlockType,
-      newBlockData,
-      {},
-      index + insertedBlocksCount,
-      true
-    );
+    editor.blocks.insert(newBlockType, newBlockData, {}, index + insertedBlocksCount, true);
     insertedBlocksCount++;
   });
 

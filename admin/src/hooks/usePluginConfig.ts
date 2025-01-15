@@ -1,24 +1,20 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 // import { useNotification } from "@strapi/helper-plugin";
 import { useNotification } from '@strapi/strapi/admin';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 
-import { RESOLVE_CONFIG } from "../constants";
-import { PLUGIN_ID } from "../pluginId";
+import { RESOLVE_CONFIG } from '../constants';
+import { PLUGIN_ID } from '../pluginId';
 
-import { useFetchClient } from "@strapi/strapi/admin";
+import { useFetchClient } from '@strapi/strapi/admin';
 
 export const usePluginConfig = () => {
   const dispatch = useDispatch();
   const fetchClient = useFetchClient();
 
+  const { toggleNotification } = useNotification();
 
-  const {toggleNotification} = useNotification();
-
-
-  const { config, isLoading } = useSelector(
-    (state: any) => state[`${PLUGIN_ID}_config`]
-  );
+  const { config, isLoading } = useSelector((state: any) => state[`${PLUGIN_ID}_config`]);
 
   useEffect(() => {
     if (!isLoading && !!config) {
@@ -37,8 +33,8 @@ export const usePluginConfig = () => {
       } catch (err) {
         if (!abortController.signal.aborted) {
           toggleNotification({
-            type: "danger",
-            message: "notification.error", //review
+            type: 'danger',
+            message: 'notification.error', //review
           });
           return err;
         }

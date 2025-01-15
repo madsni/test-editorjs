@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import { Main } from '@strapi/design-system';
-import { Alert } from '@strapi/design-system';
+import { Alert, Main } from '@strapi/design-system';
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
-
-import { getTranslation } from '../utils/getTranslation';
 
 const HomePage = () => {
   const { formatMessage } = useIntl();
@@ -12,8 +9,6 @@ const HomePage = () => {
   const [value, setValue] = useState('bollocks');
   return (
     <Main>
-
-
       <Alert closeLabel="Close alert" title="Title">
         PCO Editor Sandbox
       </Alert>
@@ -37,7 +32,7 @@ const HomePage = () => {
         initialValue={color}
       /> */}
 
-            {/* <EditorjsField
+      {/* <EditorjsField
                 intlLabel='Editorjs'
                 onChange={(value)=>console.log(value)}
                 attribute="attribute"
@@ -51,7 +46,6 @@ const HomePage = () => {
                 placeholder="allo"
                 config={false}
               /> */}
-
     </Main>
   );
 };

@@ -1,5 +1,5 @@
 import { Page } from '@strapi/strapi/admin';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { HomePage } from './HomePage';
 

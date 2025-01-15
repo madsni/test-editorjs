@@ -1,5 +1,5 @@
-import { Box } from "@strapi/design-system";
-import styled from "styled-components";
+import { Box } from '@strapi/design-system';
+import styled from 'styled-components';
 
 export const SStyleWrapper = styled(Box)`
   width: 100%;

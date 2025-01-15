@@ -1,18 +1,18 @@
-import Header from "@editorjs/header";
-import Paragraph from "@editorjs/paragraph";
-import CheckList from "@editorjs/checklist";
-import Code from "@editorjs/code";
-import Delimiter from "@editorjs/delimiter";
-import Embed from "@editorjs/embed";
-import InlineCode from "@editorjs/inline-code";
-import LinkTool from "@editorjs/link";
+import CheckList from '@editorjs/checklist';
+import Code from '@editorjs/code';
+import Delimiter from '@editorjs/delimiter';
+import Embed from '@editorjs/embed';
+import Header from '@editorjs/header';
+import InlineCode from '@editorjs/inline-code';
+import LinkTool from '@editorjs/link';
+import Paragraph from '@editorjs/paragraph';
 // import List from "@editorjs/list"; // This is the default list tool
-import Marker from "@editorjs/marker";
-import Quote from "@editorjs/quote";
-import Raw from "@editorjs/raw";
-import Table from "@editorjs/table";
-import Warning from "@editorjs/warning";
+import Marker from '@editorjs/marker';
 import NestedList from '@editorjs/nested-list';
+import Quote from '@editorjs/quote';
+import Raw from '@editorjs/raw';
+import Table from '@editorjs/table';
+import Warning from '@editorjs/warning';
 // import ComponentSelectorTool from "editorjs-component-selector";
 
 type ToolOptions = {
@@ -71,7 +71,7 @@ export const customTools = (options: ToolOptions = {}, config: ToolConfig = {}):
             class: NestedList,
             inlineToolbar: true,
             config: {
-              defaultStyle: 'ordered'
+              defaultStyle: 'ordered',
             },
             ...(config.list ? config.list : {}),
           },

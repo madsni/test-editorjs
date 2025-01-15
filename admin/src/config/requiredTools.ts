@@ -1,9 +1,9 @@
-import AttachesTool from "@editorjs/attaches";
-import Image from "@editorjs/image";
+import AttachesTool from '@editorjs/attaches';
+import Image from '@editorjs/image';
 // import { auth } from "@strapi/helper-plugin";
 
-import axios from "axios";
-import { PLUGIN_ID } from "../pluginId";
+import axios from 'axios';
+import { PLUGIN_ID } from '../pluginId';
 
 //REMOVING TEMPORARILY
 
@@ -19,7 +19,7 @@ export const requiredTools = {
   image: {
     class: Image,
     config: {
-      field: "files.image",
+      field: 'files.image',
       additionalRequestData: {
         data: JSON.stringify({}),
       },
@@ -29,8 +29,8 @@ export const requiredTools = {
       uploader: {
         async uploadByFile(file: any) {
           const formData = new FormData();
-          formData.append("data", JSON.stringify({}));
-          formData.append("files.image", file);
+          formData.append('data', JSON.stringify({}));
+          formData.append('files.image', file);
 
           //removing auth header temporarily
           /*
@@ -42,10 +42,7 @@ export const requiredTools = {
             }
           */
 
-          const { data } = await axios.post(
-            `/api/${PLUGIN_ID}/image/byFile`,
-            formData
-          );
+          const { data } = await axios.post(`/api/${PLUGIN_ID}/image/byFile`, formData);
 
           return data;
         },
@@ -55,7 +52,7 @@ export const requiredTools = {
   attaches: {
     class: AttachesTool,
     config: {
-      field: "files.image",
+      field: 'files.image',
       additionalRequestData: {
         data: JSON.stringify({}),
       },
@@ -65,8 +62,8 @@ export const requiredTools = {
       uploader: {
         async uploadByFile(file: any) {
           const formData = new FormData();
-          formData.append("data", JSON.stringify({}));
-          formData.append("files.image", file);
+          formData.append('data', JSON.stringify({}));
+          formData.append('files.image', file);
 
           //removing auth header temporarily
           /*
@@ -77,10 +74,7 @@ export const requiredTools = {
             }
           */
 
-          const { data } = await axios.post(
-            `/api/${PLUGIN_ID}/image/byFile`,
-            formData
-          );
+          const { data } = await axios.post(`/api/${PLUGIN_ID}/image/byFile`, formData);
 
           return data;
         },
