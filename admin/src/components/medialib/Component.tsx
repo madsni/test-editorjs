@@ -1,6 +1,6 @@
+import { useStrapiApp } from '@strapi/strapi/admin';
 import * as React from 'react';
 // @ts-ignore
-import { useStrapiApp } from '@strapi/strapi/admin';
 import prefixFileUrlWithBackendUrl from '../legacy-helper-plugin/prefixFileUrlWithBackendUrl';
 
 interface IMediaLibComponent {
