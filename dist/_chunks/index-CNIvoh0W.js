@@ -435,7 +435,7 @@ const index = {
         defaultMessage: "An Editor field"
       },
       components: {
-        Input: async () => Promise.resolve().then(() => require("./Editorjs-BDHCjxkP.js")).then((module2) => ({
+        Input: async () => Promise.resolve().then(() => require("./Editorjs-8P_datEG.js")).then((module2) => ({
           default: module2.Editorjs
         }))
       },
@@ -642,4 +642,4 @@ const index = {
 exports.PLUGIN_ID = PLUGIN_ID;
 exports.RESOLVE_CONFIG = RESOLVE_CONFIG;
 exports.index = index;
-//# sourceMappingURL=index-oj7M9Alw.js.map
+//# sourceMappingURL=index-CNIvoh0W.js.map

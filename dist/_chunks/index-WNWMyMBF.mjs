@@ -434,7 +434,7 @@ const index = {
         defaultMessage: "An Editor field"
       },
       components: {
-        Input: async () => import("./Editorjs-Dgghv4vz.mjs").then((module) => ({
+        Input: async () => import("./Editorjs-V3HOZpVa.mjs").then((module) => ({
           default: module.Editorjs
         }))
       },
@@ -643,4 +643,4 @@ export {
   RESOLVE_CONFIG as R,
   index as i
 };
-//# sourceMappingURL=index-CJSWGExv.mjs.map
+//# sourceMappingURL=index-WNWMyMBF.mjs.map

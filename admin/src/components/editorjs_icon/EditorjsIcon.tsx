@@ -1,5 +1,5 @@
-import { Flex } from "@strapi/design-system";
-import styled from "styled-components";
+import { Flex } from '@strapi/design-system';
+import styled from 'styled-components';
 
 const IconBox = styled(Flex)`
   background-color: #f0f0ff;
@@ -8,14 +8,7 @@ const IconBox = styled(Flex)`
 
 export const EditorjsIcon = () => {
   return (
-    <IconBox
-      justifyContent="center"
-      alignItems="center"
-      width={7}
-      height={6}
-      hasRadius
-      aria-hidden
-    >
+    <IconBox justifyContent="center" alignItems="center" width={7} height={6} hasRadius aria-hidden>
       <svg
         width="86"
         height="86"

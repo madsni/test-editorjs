@@ -1,11 +1,5 @@
 import React from 'react';
 import { MessageDescriptor } from 'react-intl';
-/***
- *
- * NOTES to next step
- * https://github.com/strapi/strapi/issues/22162
- *
- */
 interface IEditorjs {
     intlLabel: MessageDescriptor;
     onChange: (event: {

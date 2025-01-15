@@ -1,5 +1,5 @@
-import React from "react";
-import { MessageDescriptor } from "react-intl";
+import React from 'react';
+import { MessageDescriptor } from 'react-intl';
 interface IEditorjsField {
     intlLabel: MessageDescriptor;
     onChange: (event: {

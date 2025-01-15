@@ -5,13 +5,6 @@ import { usePluginConfig } from '../../hooks/usePluginConfig';
 import EditorjsField from '../editorjs_field/EditorjsField';
 import { SStyleWrapper } from './styles';
 
-/***
- *
- * NOTES to next step
- * https://github.com/strapi/strapi/issues/22162
- *
- */
-
 interface IEditorjs {
   intlLabel: MessageDescriptor;
   onChange: (event: { target: { name: string; value: string | null; type: string } }) => void;
@@ -99,12 +92,10 @@ export const Editorjs = React.forwardRef(
       }
     }, [transitionEnded, value]);
 
-    console.log(nodeRef.current); //investigate this, returning Error element
-
     return (
       <SStyleWrapper
         ref={nodeRef}
-        className={error !== '' ? 'error' : null}
+        className={error && error !== '' ? 'error' : null}
         key={uniqueKey || undefined}
       >
         <Field.Root
@@ -115,16 +106,22 @@ export const Editorjs = React.forwardRef(
           error={error}
         >
           {config && !isLoading ? (
-            <Flex spacing={1}>
+            <Flex
+              direction={{
+                initial: 'column',
+              }}
+              style={{
+                gap: '4px',
+              }}
+            >
               <Field.Label
                 action={labelAction}
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
+                  alignSelf: 'flex-start',
                 }}
               >
                 {/* {formatMessage(intlLabel)} */}
-                {intlLabel}
+                Brødtekst
               </Field.Label>
 
               <EditorjsField
