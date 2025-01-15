@@ -1,5 +1,5 @@
+import { type FieldValue, type InputProps } from '@strapi/strapi/admin';
 import * as React from 'react';
-import { type InputProps, type FieldValue } from '@strapi/strapi/admin';
 type SimpleInputProps = InputProps & FieldValue & {
     labelAction?: React.ReactNode;
 };

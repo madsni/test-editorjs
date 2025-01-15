@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 interface IMediaLibComponent {
     isOpen: boolean;
     onChange: (files: FormattedMediaFile[]) => void;

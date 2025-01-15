@@ -20,6 +20,6 @@ type ChangeFuncParams = {
     }[];
     index: number;
 };
-export declare const changeFunc: ({ indexStateSetter, editor, data, index, }: ChangeFuncParams) => void;
+export declare const changeFunc: ({ indexStateSetter, editor, data, index }: ChangeFuncParams) => void;
 export declare const changeFuncAttaches: ({ indexStateSetter, editor, data, index, }: ChangeFuncParams) => void;
 export {};
