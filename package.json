@@ -1,10 +1,10 @@
 {
-  "name": "pco-strapi-editorjs-plugin",
+  "name": "editorjs-strapi-plugin",
   "version": "0.0.1",
   "description": "EditorJS plugin for Strapi",
   "keywords": [],
   "license": "MIT",
-  "author": "Eduardo Verillo <edv@peytz.dk>",
+  "author": "mni",
   "type": "commonjs",
   "exports": {
     "./package.json": "./package.json",
@@ -91,7 +91,7 @@
   },
   "strapi": {
     "kind": "plugin",
-    "name": "pco-strapi-editorjs-plugin",
+    "name": "editorjs-strapi-plugin",
     "displayName": "EditorJS Strapi Plugin",
     "description": "EditorJS plugin for Strapi"
   }

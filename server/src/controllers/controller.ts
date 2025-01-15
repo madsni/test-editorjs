@@ -3,7 +3,7 @@ import type { Core } from '@strapi/strapi';
 const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
   index(ctx) {
     ctx.body = strapi
-      .plugin('pco-strapi-editorjs-plugin')
+      .plugin('editorjs-strapi-plugin')
       // the name of the service file & the method.
       .service('service')
       .getWelcomeMessage();

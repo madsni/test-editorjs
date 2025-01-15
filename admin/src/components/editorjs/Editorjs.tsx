@@ -1,18 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  Field,
-  Flex,
-} from "@strapi/design-system";
-import { MessageDescriptor, useIntl } from "react-intl";
-import { usePluginConfig } from "../../hooks/usePluginConfig";
-import EditorjsField from "../editorjs_field/EditorjsField";
-import { SStyleWrapper } from "./styles";
+import { Field, Flex } from '@strapi/design-system';
+import React, { useEffect, useRef, useState } from 'react';
+import { MessageDescriptor, useIntl } from 'react-intl';
+import { usePluginConfig } from '../../hooks/usePluginConfig';
+import EditorjsField from '../editorjs_field/EditorjsField';
+import { SStyleWrapper } from './styles';
+
+/***
+ *
+ * NOTES to next step
+ * https://github.com/strapi/strapi/issues/22162
+ *
+ */
 
 interface IEditorjs {
   intlLabel: MessageDescriptor;
-  onChange: (event: {
-    target: { name: string; value: string | null; type: string };
-  }) => void;
+  onChange: (event: { target: { name: string; value: string | null; type: string } }) => void;
   attribute: { required: boolean; options: { [key: string]: unknown } };
   name: string;
   description?: MessageDescriptor;
@@ -50,13 +52,13 @@ export const Editorjs = React.forwardRef(
     // Extracting key parts from URL
     const createKeyFromURL = () => {
       const url = new URL(window.location.href);
-      const locale = url.searchParams.get("plugins[i18n][locale]");
-      const parts = url.pathname.split("/");
+      const locale = url.searchParams.get('plugins[i18n][locale]');
+      const parts = url.pathname.split('/');
       const apiType = parts[parts.length - 3];
       const id = parts[parts.length - 1];
 
       if (apiType || id || locale) {
-        return `${apiType || ""}${id || ""}${locale || ""}`;
+        return `${apiType || ''}${id || ''}${locale || ''}`;
       }
       return null;
     };
@@ -78,13 +80,13 @@ export const Editorjs = React.forwardRef(
 
       const node = nodeRef.current;
       if (node) {
-        node.addEventListener("transitionend", handleTransitionEnd);
+        node.addEventListener('transitionend', handleTransitionEnd);
         observer.observe(node, { childList: true, subtree: true });
       }
 
       return () => {
         if (node) {
-          node.removeEventListener("transitionend", handleTransitionEnd);
+          node.removeEventListener('transitionend', handleTransitionEnd);
         }
         observer.disconnect();
       };
@@ -102,7 +104,7 @@ export const Editorjs = React.forwardRef(
     return (
       <SStyleWrapper
         ref={nodeRef}
-        className={error !== "" ? "error" : null}
+        className={error !== '' ? 'error' : null}
         key={uniqueKey || undefined}
       >
         <Field.Root
@@ -117,14 +119,13 @@ export const Editorjs = React.forwardRef(
               <Field.Label
                 action={labelAction}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
+                  display: 'flex',
+                  alignItems: 'center',
                 }}
               >
                 {/* {formatMessage(intlLabel)} */}
                 {intlLabel}
               </Field.Label>
-
 
               <EditorjsField
                 intlLabel={intlLabel}

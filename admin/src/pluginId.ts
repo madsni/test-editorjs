@@ -1,1 +1,1 @@
-export const PLUGIN_ID = 'pco-strapi-editorjs-plugin';
+export const PLUGIN_ID = 'editorjs-strapi-plugin';

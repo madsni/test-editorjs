@@ -1,3 +1,3 @@
-const pluginId = "pco-strapi-editorjs-plugin";
+const pluginId = 'editorjs-strapi-plugin';
 
 export default pluginId;
