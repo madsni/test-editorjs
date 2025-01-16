@@ -9,6 +9,8 @@ import { MediaLibAdapter } from '../medialib/adapter';
 import { MediaLibAttachesAdapter } from '../medialib/adapterAttaches';
 import { MediaLibComponent } from '../medialib/Component';
 import { changeFunc, changeFuncAttaches, getToggleFunc } from '../medialib/utils';
+import { EmojiInlineTool } from '../tools/EmojiInlineTool';
+import { LinkButton } from '../tools/LinkButton';
 
 interface IEditorjsField {
   intlLabel: MessageDescriptor;
@@ -43,11 +45,21 @@ let EditorjsFieldNew: React.FC<IEditorjsField> = ({
   id,
   labelAction,
 }) => {
+  const renderTime = new Date().getTime();
   const editorContainerRef = useRef<HTMLDivElement>(null);
   const editorInstanceRef = useRef<EditorJS | null>(null);
   const [newEditorInstance, setnewEditorInstance] = useState<API>();
   const [mediaLibBlockIndex, setMediaLibBlockIndex] = useState(-1);
-  const [isMediaLibOpen, setIsMediaLibOpen] = useState(false);
+  const [isMediaLibOpen, setI] = useState(false);
+
+  const setIsMediaLibOpen = (a: unknown) => {
+    // Media would open randomly at render, so I added a check to prevent it from opening the first second
+    const timeDiff = new Date().getTime() - renderTime;
+    if (timeDiff > 1000) {
+      // @ts-ignore - we expect it to be a boolean, but it returns a function
+      setI(a);
+    }
+  };
 
   const [mediaLibAttachesBlockIndex, setMediaLibAttachesBlockIndex] = useState(-1);
   const [isMediaLibAttachesOpen, setIsMediaLibAttachesOpen] = useState(false);
@@ -123,6 +135,8 @@ let EditorjsFieldNew: React.FC<IEditorjsField> = ({
         holder: editorContainerRef.current,
 
         tools: {
+          linkbtn: LinkButton,
+          emomo: EmojiInlineTool,
           ...requiredTools,
           ...customTools(attribute.options, config),
           ...customToolsOther,
