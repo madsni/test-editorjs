@@ -55,6 +55,7 @@ export const SStyleWrapper = styled(Box)`
 
   .codex-editor {
     padding: 16px;
+    font-size: 1rem;
     a {
       color: ${({ theme }) => theme.colors.secondary500};
       &:hover {

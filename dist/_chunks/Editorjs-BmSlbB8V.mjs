@@ -5,7 +5,7 @@ import React__default, { useContext, useRef, useCallback, useDebugValue, useEffe
 import { useIntl } from "react-intl";
 import { useFetchClient, useNotification, useStrapiApp } from "@strapi/strapi/admin";
 import ReactDOM from "react-dom";
-import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-Bd2sELdo.mjs";
+import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-K-qejvgA.mjs";
 import EditorJS from "@editorjs/editorjs";
 import styled from "styled-components";
 import CheckList from "@editorjs/checklist";
@@ -2417,6 +2417,7 @@ const SStyleWrapper = styled(Box)`
 
   .codex-editor {
     padding: 16px;
+    font-size: 1rem;
     a {
       color: ${({ theme }) => theme.colors.secondary500};
       &:hover {
@@ -2718,4 +2719,4 @@ const Editorjs = React__default.forwardRef(
 export {
   Editorjs
 };
-//# sourceMappingURL=Editorjs-BRkwCuLR.mjs.map
+//# sourceMappingURL=Editorjs-BmSlbB8V.mjs.map

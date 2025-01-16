@@ -6,7 +6,7 @@ const React = require("react");
 const reactIntl = require("react-intl");
 const admin = require("@strapi/strapi/admin");
 const ReactDOM = require("react-dom");
-const index = require("./index-DD6U0Y81.js");
+const index = require("./index-BbWZemKM.js");
 const EditorJS = require("@editorjs/editorjs");
 const styled = require("styled-components");
 const CheckList = require("@editorjs/checklist");
@@ -2458,6 +2458,7 @@ const SStyleWrapper = styled__default.default(designSystem.Box)`
 
   .codex-editor {
     padding: 16px;
+    font-size: 1rem;
     a {
       color: ${({ theme }) => theme.colors.secondary500};
       &:hover {
@@ -2757,4 +2758,4 @@ const Editorjs = React__namespace.default.forwardRef(
   }
 );
 exports.Editorjs = Editorjs;
-//# sourceMappingURL=Editorjs-CEiaO6BP.js.map
+//# sourceMappingURL=Editorjs-By5P58WH.js.map
