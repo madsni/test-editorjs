@@ -50,8 +50,18 @@ interface BtnProps {
 
 function Btn({ onDataChange, data }: BtnProps) {
   return (
-    <div>
-      <h3>LinkButton</h3>
+    <div
+      style={{
+        borderRadius: '4px',
+        border: '1px solid #ccc',
+        paddingLeft: '8px',
+        paddingTop: '8px',
+        paddingRight: '8px',
+        marginTop: '2px',
+        marginBottom: '2px',
+      }}
+    >
+      <h4>Knap med link</h4>
       <div
         style={{
           display: 'flex',
@@ -69,8 +79,7 @@ function Btn({ onDataChange, data }: BtnProps) {
             padding: '8px',
             borderRadius: '4px',
             border: '1px solid #ccc',
-            width: '40%',
-            boxSizing: 'border-box',
+            width: '46%',
           }}
         />
         <input
@@ -83,8 +92,7 @@ function Btn({ onDataChange, data }: BtnProps) {
             padding: '8px',
             borderRadius: '4px',
             border: '1px solid #ccc',
-            width: '40%',
-            boxSizing: 'border-box',
+            width: '46%',
           }}
         />
       </div>

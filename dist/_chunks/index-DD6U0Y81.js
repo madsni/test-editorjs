@@ -1,5 +1,6 @@
-import { jsx } from "react/jsx-runtime";
-import { PuzzlePiece } from "@strapi/icons";
+"use strict";
+const jsxRuntime = require("react/jsx-runtime");
+const icons = require("@strapi/icons");
 const __variableDynamicImportRuntimeHelper = (glob, path) => {
   const v2 = glob[path];
   if (v2) {
@@ -9,7 +10,7 @@ const __variableDynamicImportRuntimeHelper = (glob, path) => {
     (typeof queueMicrotask === "function" ? queueMicrotask : setTimeout)(reject.bind(null, new Error("Unknown variable dynamic import: " + path)));
   });
 };
-const PluginIcon = () => /* @__PURE__ */ jsx(PuzzlePiece, {});
+const PluginIcon = () => /* @__PURE__ */ jsxRuntime.jsx(icons.PuzzlePiece, {});
 const PLUGIN_ID = "editorjs-strapi-plugin";
 const getTranslation = (id) => `${PLUGIN_ID}.${id}`;
 const prefixPluginTranslations = (trad, pluginId) => {
@@ -434,8 +435,8 @@ const index = {
         defaultMessage: "An Editor field"
       },
       components: {
-        Input: async () => import("./Editorjs-BwW4YMKb.mjs").then((module) => ({
-          default: module.Editorjs
+        Input: async () => Promise.resolve().then(() => require("./Editorjs-CEiaO6BP.js")).then((module2) => ({
+          default: module2.Editorjs
         }))
       },
       options: {
@@ -622,7 +623,7 @@ const index = {
     const { locales } = app;
     const importedTranslations = await Promise.all(
       locales.map((locale) => {
-        return __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "./translations/en.json": () => import("./en-AKYmbjlj.mjs") }), `./translations/${locale}.json`).then(({ default: data }) => {
+        return __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "./translations/en.json": () => Promise.resolve().then(() => require("./en-BoeBC6ZP.js")) }), `./translations/${locale}.json`).then(({ default: data }) => {
           return {
             data: prefixPluginTranslations(data, PLUGIN_ID),
             locale
@@ -638,9 +639,7 @@ const index = {
     return importedTranslations;
   }
 };
-export {
-  PLUGIN_ID as P,
-  RESOLVE_CONFIG as R,
-  index as i
-};
-//# sourceMappingURL=index-Cub7IGU-.mjs.map
+exports.PLUGIN_ID = PLUGIN_ID;
+exports.RESOLVE_CONFIG = RESOLVE_CONFIG;
+exports.index = index;
+//# sourceMappingURL=index-DD6U0Y81.js.map
