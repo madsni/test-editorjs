@@ -1,30 +1,71 @@
-import { jsx, jsxs } from "react/jsx-runtime";
-import { Box, Field, Flex } from "@strapi/design-system";
-import * as React from "react";
-import React__default, { useContext, useRef, useCallback, useDebugValue, useEffect, memo, useState } from "react";
-import { useIntl } from "react-intl";
-import { useFetchClient, useNotification, useStrapiApp } from "@strapi/strapi/admin";
-import "react-dom";
-import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-CAiDSh1O.mjs";
-import EditorJS from "@editorjs/editorjs";
-import styled from "styled-components";
-import CheckList from "@editorjs/checklist";
-import Code from "@editorjs/code";
-import Delimiter from "@editorjs/delimiter";
-import Embed from "@editorjs/embed";
-import Header from "@editorjs/header";
-import InlineCode from "@editorjs/inline-code";
-import LinkTool from "@editorjs/link";
-import Paragraph from "@editorjs/paragraph";
-import Marker from "@editorjs/marker";
-import NestedList from "@editorjs/nested-list";
-import Quote from "@editorjs/quote";
-import Raw from "@editorjs/raw";
-import Table from "@editorjs/table";
-import Warning from "@editorjs/warning";
-import AttachesTool from "@editorjs/attaches";
-import Image from "@editorjs/image";
-import axios from "axios";
+"use strict";
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+const jsxRuntime = require("react/jsx-runtime");
+const designSystem = require("@strapi/design-system");
+const React = require("react");
+const reactIntl = require("react-intl");
+const admin = require("@strapi/strapi/admin");
+const ReactDOM = require("react-dom");
+const index = require("./index-0XXLeV2k.js");
+const EditorJS = require("@editorjs/editorjs");
+const styled = require("styled-components");
+const CheckList = require("@editorjs/checklist");
+const Code = require("@editorjs/code");
+const Delimiter = require("@editorjs/delimiter");
+const Embed = require("@editorjs/embed");
+const Header = require("@editorjs/header");
+const InlineCode = require("@editorjs/inline-code");
+const LinkTool = require("@editorjs/link");
+const Paragraph = require("@editorjs/paragraph");
+const Marker = require("@editorjs/marker");
+const NestedList = require("@editorjs/nested-list");
+const Quote = require("@editorjs/quote");
+const Raw = require("@editorjs/raw");
+const Table = require("@editorjs/table");
+const Warning = require("@editorjs/warning");
+const AttachesTool = require("@editorjs/attaches");
+const Image = require("@editorjs/image");
+const axios = require("axios");
+const _interopDefault = (e) => e && e.__esModule ? e : { default: e };
+function _interopNamespace(e) {
+  if (e && e.__esModule)
+    return e;
+  const n = Object.create(null, { [Symbol.toStringTag]: { value: "Module" } });
+  if (e) {
+    for (const k in e) {
+      if (k !== "default") {
+        const d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: () => e[k]
+        });
+      }
+    }
+  }
+  n.default = e;
+  return Object.freeze(n);
+}
+const React__namespace = /* @__PURE__ */ _interopNamespace(React);
+const ReactDOM__default = /* @__PURE__ */ _interopDefault(ReactDOM);
+const EditorJS__default = /* @__PURE__ */ _interopDefault(EditorJS);
+const styled__default = /* @__PURE__ */ _interopDefault(styled);
+const CheckList__default = /* @__PURE__ */ _interopDefault(CheckList);
+const Code__default = /* @__PURE__ */ _interopDefault(Code);
+const Delimiter__default = /* @__PURE__ */ _interopDefault(Delimiter);
+const Embed__default = /* @__PURE__ */ _interopDefault(Embed);
+const Header__default = /* @__PURE__ */ _interopDefault(Header);
+const InlineCode__default = /* @__PURE__ */ _interopDefault(InlineCode);
+const LinkTool__default = /* @__PURE__ */ _interopDefault(LinkTool);
+const Paragraph__default = /* @__PURE__ */ _interopDefault(Paragraph);
+const Marker__default = /* @__PURE__ */ _interopDefault(Marker);
+const NestedList__default = /* @__PURE__ */ _interopDefault(NestedList);
+const Quote__default = /* @__PURE__ */ _interopDefault(Quote);
+const Raw__default = /* @__PURE__ */ _interopDefault(Raw);
+const Table__default = /* @__PURE__ */ _interopDefault(Table);
+const Warning__default = /* @__PURE__ */ _interopDefault(Warning);
+const AttachesTool__default = /* @__PURE__ */ _interopDefault(AttachesTool);
+const Image__default = /* @__PURE__ */ _interopDefault(Image);
+const axios__default = /* @__PURE__ */ _interopDefault(axios);
 var shim = { exports: {} };
 var useSyncExternalStoreShim_production_min = {};
 /**
@@ -41,7 +82,7 @@ function requireUseSyncExternalStoreShim_production_min() {
   if (hasRequiredUseSyncExternalStoreShim_production_min)
     return useSyncExternalStoreShim_production_min;
   hasRequiredUseSyncExternalStoreShim_production_min = 1;
-  var e = React__default;
+  var e = React__namespace.default;
   function h(a, b) {
     return a === b && (0 !== a || 1 / a === 1 / b) || a !== a && b !== b;
   }
@@ -99,7 +140,7 @@ function requireUseSyncExternalStoreShim_development() {
       if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
         __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
       }
-      var React2 = React__default;
+      var React2 = React__namespace.default;
       var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function error(format) {
         {
@@ -130,7 +171,7 @@ function requireUseSyncExternalStoreShim_development() {
         return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
       }
       var objectIs = typeof Object.is === "function" ? Object.is : is;
-      var useState2 = React2.useState, useEffect2 = React2.useEffect, useLayoutEffect = React2.useLayoutEffect, useDebugValue2 = React2.useDebugValue;
+      var useState = React2.useState, useEffect = React2.useEffect, useLayoutEffect = React2.useLayoutEffect, useDebugValue = React2.useDebugValue;
       var didWarnOld18Alpha = false;
       var didWarnUncachedGetSnapshot = false;
       function useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot) {
@@ -152,7 +193,7 @@ function requireUseSyncExternalStoreShim_development() {
             }
           }
         }
-        var _useState = useState2({
+        var _useState = useState({
           inst: {
             value,
             getSnapshot
@@ -167,7 +208,7 @@ function requireUseSyncExternalStoreShim_development() {
             });
           }
         }, [subscribe, value, getSnapshot]);
-        useEffect2(function() {
+        useEffect(function() {
           if (checkIfSnapshotChanged(inst)) {
             forceUpdate({
               inst
@@ -182,7 +223,7 @@ function requireUseSyncExternalStoreShim_development() {
           };
           return subscribe(handleStoreChange);
         }, [subscribe]);
-        useDebugValue2(value);
+        useDebugValue(value);
         return value;
       }
       function checkIfSnapshotChanged(inst) {
@@ -232,7 +273,7 @@ function requireWithSelector_production_min() {
   if (hasRequiredWithSelector_production_min)
     return withSelector_production_min;
   hasRequiredWithSelector_production_min = 1;
-  var h = React__default, n = shimExports;
+  var h = React__namespace.default, n = shimExports;
   function p(a, b) {
     return a === b && (0 !== a || 1 / a === 1 / b) || a !== a && b !== b;
   }
@@ -303,16 +344,16 @@ function requireWithSelector_development() {
       if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
         __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
       }
-      var React2 = React__default;
+      var React2 = React__namespace.default;
       var shim2 = shimExports;
       function is(x, y) {
         return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
       }
       var objectIs = typeof Object.is === "function" ? Object.is : is;
       var useSyncExternalStore = shim2.useSyncExternalStore;
-      var useRef2 = React2.useRef, useEffect2 = React2.useEffect, useMemo = React2.useMemo, useDebugValue2 = React2.useDebugValue;
+      var useRef = React2.useRef, useEffect = React2.useEffect, useMemo = React2.useMemo, useDebugValue = React2.useDebugValue;
       function useSyncExternalStoreWithSelector2(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-        var instRef = useRef2(null);
+        var instRef = useRef(null);
         var inst;
         if (instRef.current === null) {
           inst = {
@@ -367,11 +408,11 @@ function requireWithSelector_development() {
           return [getSnapshotWithSelector, getServerSnapshotWithSelector];
         }, [getSnapshot, getServerSnapshot, selector, isEqual]), getSelection = _useMemo[0], getServerSelection = _useMemo[1];
         var value = useSyncExternalStore(subscribe, getSelection, getServerSelection);
-        useEffect2(function() {
+        useEffect(function() {
           inst.hasValue = true;
           inst.value = value;
         }, [value]);
-        useDebugValue2(value);
+        useDebugValue(value);
         return value;
       }
       withSelector_development.useSyncExternalStoreWithSelector = useSyncExternalStoreWithSelector2;
@@ -395,23 +436,23 @@ const gT = typeof globalThis !== "undefined" ? globalThis : (
 );
 function getContext() {
   var _gT$ContextKey;
-  if (!React.createContext)
+  if (!React__namespace.createContext)
     return {};
   const contextMap = (_gT$ContextKey = gT[ContextKey]) != null ? _gT$ContextKey : gT[ContextKey] = /* @__PURE__ */ new Map();
-  let realContext = contextMap.get(React.createContext);
+  let realContext = contextMap.get(React__namespace.createContext);
   if (!realContext) {
-    realContext = React.createContext(null);
+    realContext = React__namespace.createContext(null);
     if (process.env.NODE_ENV !== "production") {
       realContext.displayName = "ReactRedux";
     }
-    contextMap.set(React.createContext, realContext);
+    contextMap.set(React__namespace.createContext, realContext);
   }
   return realContext;
 }
 const ReactReduxContext = /* @__PURE__ */ getContext();
 function createReduxContextHook(context = ReactReduxContext) {
   return function useReduxContext2() {
-    const contextValue = useContext(context);
+    const contextValue = React.useContext(context);
     if (process.env.NODE_ENV !== "production" && !contextValue) {
       throw new Error("could not find react-redux context value; please ensure the component is wrapped in a <Provider>");
     }
@@ -455,8 +496,8 @@ function createSelectorHook(context = ReactReduxContext) {
       stabilityCheck: globalStabilityCheck,
       noopCheck: globalNoopCheck
     } = useReduxContext$1();
-    const firstRun = useRef(true);
-    const wrappedSelector = useCallback({
+    const firstRun = React.useRef(true);
+    const wrappedSelector = React.useCallback({
       [selector.name](state) {
         const selected = selector(state);
         if (process.env.NODE_ENV !== "production") {
@@ -503,7 +544,7 @@ function createSelectorHook(context = ReactReduxContext) {
       }
     }[selector.name], [selector, globalStabilityCheck, stabilityCheck]);
     const selectedState = useSyncExternalStoreWithSelector(subscription.addNestedSub, store.getState, getServerState || store.getState, wrappedSelector, equalityFn);
-    useDebugValue(selectedState);
+    React.useDebugValue(selectedState);
     return selectedState;
   };
 }
@@ -1134,17 +1175,17 @@ const useDispatch = /* @__PURE__ */ createDispatchHook();
 initializeUseSelector(withSelectorExports.useSyncExternalStoreWithSelector);
 const usePluginConfig = () => {
   const dispatch = useDispatch();
-  const fetchClient = useFetchClient();
-  const { toggleNotification } = useNotification();
-  const { config, isLoading } = useSelector((state) => state[`${PLUGIN_ID}_config`]);
-  useEffect(() => {
+  const fetchClient = admin.useFetchClient();
+  const { toggleNotification } = admin.useNotification();
+  const { config, isLoading } = useSelector((state) => state[`${index.PLUGIN_ID}_config`]);
+  React.useEffect(() => {
     if (!isLoading && !!config) {
       return;
     }
     const abortController = new AbortController();
     const fetchData = async () => {
       try {
-        const endpoint = `/${PLUGIN_ID}/config`;
+        const endpoint = `/${index.PLUGIN_ID}/config`;
         const { data } = await fetchClient.get(endpoint, {
           signal: abortController.signal
         });
@@ -1160,7 +1201,7 @@ const usePluginConfig = () => {
         }
       }
     };
-    fetchData().then((data) => dispatch({ type: RESOLVE_CONFIG, data }));
+    fetchData().then((data) => dispatch({ type: index.RESOLVE_CONFIG, data }));
     return () => abortController.abort();
   }, [dispatch, fetchClient, toggleNotification]);
   return { config, isLoading };
@@ -1169,17 +1210,17 @@ const customTools = (options = {}, config = {}) => {
   return {
     ...options.header ? {
       header: {
-        class: Header,
+        class: Header__default.default,
         ...config.header ? config.header : {}
       }
     } : {},
     paragraph: {
-      class: Paragraph,
+      class: Paragraph__default.default,
       ...config.paragraph ? config.paragraph : {}
     },
     ...options.list ? {
       list: {
-        class: NestedList,
+        class: NestedList__default.default,
         inlineToolbar: true,
         config: {
           defaultStyle: "ordered"
@@ -1189,67 +1230,67 @@ const customTools = (options = {}, config = {}) => {
     } : {},
     ...options.checklist ? {
       checklist: {
-        class: CheckList,
+        class: CheckList__default.default,
         ...config.checklist ? config.checklist : {}
       }
     } : {},
     ...options.embed ? {
       embed: {
-        class: Embed,
+        class: Embed__default.default,
         ...config.embed ? config.embed : {}
       }
     } : {},
     ...options.table ? {
       table: {
-        class: Table,
+        class: Table__default.default,
         ...config.table ? config.table : {}
       }
     } : {},
     ...options.warning ? {
       warning: {
-        class: Warning,
+        class: Warning__default.default,
         ...config.warning ? config.warning : {}
       }
     } : {},
     ...options.code ? {
       code: {
-        class: Code,
+        class: Code__default.default,
         ...config.code ? config.code : {}
       }
     } : {},
     ...options.link_tool ? {
       link_tool: {
-        class: LinkTool,
+        class: LinkTool__default.default,
         ...config.link_tool ? config.link_tool : {}
       }
     } : {},
     ...options.raw ? {
       raw: {
-        class: Raw,
+        class: Raw__default.default,
         ...config.raw ? config.raw : {}
       }
     } : {},
     ...options.quote ? {
       quote: {
-        class: Quote,
+        class: Quote__default.default,
         ...config.quote ? config.quote : {}
       }
     } : {},
     ...options.marker ? {
       marker: {
-        class: Marker,
+        class: Marker__default.default,
         ...config.marker ? config.marker : {}
       }
     } : {},
     ...options.delimiter ? {
       delimiter: {
-        class: Delimiter,
+        class: Delimiter__default.default,
         ...config.delimiter ? config.delimiter : {}
       }
     } : {},
     ...options.inlineCode ? {
       inlineCode: {
-        class: InlineCode,
+        class: InlineCode__default.default,
         ...config.inlineCode ? config.inlineCode : {}
       }
     } : {}
@@ -1257,42 +1298,42 @@ const customTools = (options = {}, config = {}) => {
 };
 const requiredTools = {
   image: {
-    class: Image,
+    class: Image__default.default,
     config: {
       field: "files.image",
       additionalRequestData: {
         data: JSON.stringify({})
       },
       endpoints: {
-        byUrl: `/api/${PLUGIN_ID}/image/byUrl`
+        byUrl: `/api/${index.PLUGIN_ID}/image/byUrl`
       },
       uploader: {
         async uploadByFile(file) {
           const formData = new FormData();
           formData.append("data", JSON.stringify({}));
           formData.append("files.image", file);
-          const { data } = await axios.post(`/api/${PLUGIN_ID}/image/byFile`, formData);
+          const { data } = await axios__default.default.post(`/api/${index.PLUGIN_ID}/image/byFile`, formData);
           return data;
         }
       }
     }
   },
   attaches: {
-    class: AttachesTool,
+    class: AttachesTool__default.default,
     config: {
       field: "files.image",
       additionalRequestData: {
         data: JSON.stringify({})
       },
       endpoints: {
-        byUrl: `/api/${PLUGIN_ID}/image/byUrl`
+        byUrl: `/api/${index.PLUGIN_ID}/image/byUrl`
       },
       uploader: {
         async uploadByFile(file) {
           const formData = new FormData();
           formData.append("data", JSON.stringify({}));
           formData.append("files.image", file);
-          const { data } = await axios.post(`/api/${PLUGIN_ID}/image/byFile`, formData);
+          const { data } = await axios__default.default.post(`/api/${index.PLUGIN_ID}/image/byFile`, formData);
           return data;
         }
       }
@@ -1360,8 +1401,8 @@ const MediaLibComponent = ({
   onToggle,
   allowedTypes
 }) => {
-  const { components } = useStrapiApp("library", (app) => app);
-  const [data, setData] = React.useState(null);
+  const { components } = admin.useStrapiApp("library", (app) => app);
+  const [data, setData] = React__namespace.useState(null);
   const MediaLibraryDialog = components["media-library"];
   const handleInputChange = (files) => {
     if (files) {
@@ -1383,7 +1424,7 @@ const MediaLibComponent = ({
   if (!isOpen) {
     return null;
   }
-  return /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(
     MediaLibraryDialog,
     {
       allowedTypes,
@@ -1404,7 +1445,7 @@ const getToggleFunc = ({
     openStateSetter((prev) => !prev);
   };
 };
-const changeFunc = ({ indexStateSetter, editor, data, index }) => {
+const changeFunc = ({ indexStateSetter, editor, data, index: index2 }) => {
   let insertedBlocksCount = 0;
   data.forEach((entry) => {
     if (!entry.mime.includes("image")) {
@@ -1426,17 +1467,17 @@ const changeFunc = ({ indexStateSetter, editor, data, index }) => {
       withBackground: false,
       stretched: false
     };
-    editor.blocks.insert(newBlockType, newBlockData, {}, index + insertedBlocksCount, true);
+    editor.blocks.insert(newBlockType, newBlockData, {}, index2 + insertedBlocksCount, true);
     insertedBlocksCount++;
   });
-  editor.blocks.delete(index + insertedBlocksCount);
+  editor.blocks.delete(index2 + insertedBlocksCount);
   indexStateSetter(-1);
 };
 const changeFuncAttaches = ({
   indexStateSetter,
   editor,
   data,
-  index
+  index: index2
 }) => {
   let insertedBlocksCount = 0;
   data.forEach((entry) => {
@@ -1450,12 +1491,720 @@ const changeFuncAttaches = ({
       },
       title: entry.alt
     };
-    editor.blocks.insert(newBlockType, newBlockData, {}, index + insertedBlocksCount, true);
+    editor.blocks.insert(newBlockType, newBlockData, {}, index2 + insertedBlocksCount, true);
     insertedBlocksCount++;
   });
-  editor.blocks.delete(index + insertedBlocksCount);
+  editor.blocks.delete(index2 + insertedBlocksCount);
   indexStateSetter(-1);
 };
+const EMOJI_LIST = [
+  "⁉",
+  "‼",
+  "🔠",
+  "🔡",
+  "🔤",
+  "☀",
+  "☁",
+  "☂",
+  "☃",
+  "★",
+  "☆",
+  "☎",
+  "☐",
+  "☑",
+  "☒",
+  "☕",
+  "☜",
+  "☝",
+  "☞",
+  "☟",
+  "☠",
+  "☹",
+  "☺",
+  "☼",
+  "♨",
+  "⚙",
+  "⚠",
+  "⚡",
+  "⚽",
+  "⚾",
+  "⛔",
+  "✂",
+  "✄",
+  "✅",
+  "✉",
+  "✊",
+  "✋",
+  "✌",
+  "✎",
+  "✏",
+  "✐",
+  "✑",
+  "✒",
+  "✓",
+  "✔",
+  "✕",
+  "✖",
+  "✗",
+  "✘",
+  "✨",
+  "❌",
+  "❎",
+  "❓",
+  "❔",
+  "❕",
+  "❗",
+  "❣",
+  "❤",
+  "🆑",
+  "🆒",
+  "🆓",
+  "🆔",
+  "🆕",
+  "🆖",
+  "🆗",
+  "🆘",
+  "🆙",
+  "🆚",
+  "⏺",
+  "⏬",
+  "⏪",
+  "⏮",
+  "⏩",
+  "⏭",
+  "⏯",
+  "⏹",
+  "⏫",
+  "⏸",
+  "🌀",
+  "🌈",
+  "🌐",
+  "🌞",
+  "🌟",
+  "🌸",
+  "🌼",
+  "🍀",
+  "🍄",
+  "🍅",
+  "🍇",
+  "🍉",
+  "🍋",
+  "🍌",
+  "🍎",
+  "🍏",
+  "🍐",
+  "🍒",
+  "🍓",
+  "🍔",
+  "🍕",
+  "🍦",
+  "🍩",
+  "🍭",
+  "🍷",
+  "🍸",
+  "🍺",
+  "🍻",
+  "🎀",
+  "🎁",
+  "🎈",
+  "🎉",
+  "🎌",
+  "🎖",
+  "🎯",
+  "🎱",
+  "🎵",
+  "🎶",
+  "🎾",
+  "🏀",
+  "🏅",
+  "🏆",
+  "🐌",
+  "🐔",
+  "🐙",
+  "🐛",
+  "🐭",
+  "🐯",
+  "🐰",
+  "🐱",
+  "🐵",
+  "🐶",
+  "🐷",
+  "🐸",
+  "🐹",
+  "🐻",
+  "🐼",
+  "👀",
+  "👁",
+  "👆",
+  "👇",
+  "👈",
+  "👉",
+  "👊",
+  "👋",
+  "👌",
+  "👍",
+  "👎",
+  "👏",
+  "👐",
+  "👓",
+  "👹",
+  "👺",
+  "👻",
+  "👽",
+  "👾",
+  "👿",
+  "💀",
+  "💌",
+  "💓",
+  "💔",
+  "💕",
+  "💖",
+  "💗",
+  "💘",
+  "💙",
+  "💚",
+  "💛",
+  "💜",
+  "💝",
+  "💞",
+  "💡",
+  "💤",
+  "💥",
+  "💦",
+  "💧",
+  "💨",
+  "💩",
+  "💪",
+  "💫",
+  "💬",
+  "💭",
+  "💯",
+  "💰",
+  "💲",
+  "💳",
+  "💴",
+  "💵",
+  "💶",
+  "💷",
+  "💻",
+  "💾",
+  "📁",
+  "📂",
+  "📄",
+  "📌",
+  "📍",
+  "📎",
+  "📒",
+  "📤",
+  "📥",
+  "📦",
+  "📧",
+  "📨",
+  "📩",
+  "📶",
+  "🔀",
+  "🔁",
+  "🔂",
+  "🔃",
+  "🔄",
+  "🔅",
+  "🔆",
+  "🔇",
+  "🔈",
+  "🔉",
+  "🔊",
+  "🔍",
+  "🔎",
+  "🔒",
+  "🔓",
+  "🔗",
+  "🔘",
+  "🔙",
+  "🔚",
+  "🔛",
+  "🔜",
+  "🔝",
+  "🔞",
+  "🔢",
+  "🔣",
+  "🔥",
+  "🔴",
+  "🔵",
+  "🔶",
+  "🔷",
+  "🔸",
+  "🔹",
+  "🔺",
+  "🔻",
+  "🕐",
+  "🕑",
+  "🕒",
+  "🕓",
+  "🕔",
+  "🕕",
+  "🕖",
+  "🕗",
+  "🕘",
+  "🕙",
+  "🕚",
+  "🕛",
+  "🕜",
+  "🕝",
+  "🕞",
+  "🕟",
+  "🕠",
+  "🕡",
+  "🕢",
+  "🕣",
+  "🕤",
+  "🕥",
+  "🕦",
+  "🕧",
+  "🕳",
+  "🕶",
+  "🖐",
+  "🖕",
+  "🖖",
+  "🖤",
+  "🖥",
+  "🗒",
+  "🗨",
+  "🗯",
+  "🗻",
+  "😀",
+  "😁",
+  "😂",
+  "😃",
+  "😄",
+  "😅",
+  "😆",
+  "😇",
+  "😈",
+  "😉",
+  "😊",
+  "😋",
+  "😌",
+  "😍",
+  "😎",
+  "😏",
+  "😐",
+  "😑",
+  "😒",
+  "😓",
+  "😔",
+  "😕",
+  "😖",
+  "😗",
+  "😘",
+  "😙",
+  "😚",
+  "😛",
+  "😜",
+  "😝",
+  "😞",
+  "😟",
+  "😠",
+  "😡",
+  "😢",
+  "😣",
+  "😤",
+  "😥",
+  "😦",
+  "😧",
+  "😨",
+  "😩",
+  "😪",
+  "😫",
+  "😬",
+  "😭",
+  "😮",
+  "😯",
+  "😰",
+  "😱",
+  "😲",
+  "😳",
+  "😴",
+  "😵",
+  "😶",
+  "😷",
+  "😸",
+  "😹",
+  "😺",
+  "😻",
+  "😼",
+  "😽",
+  "😾",
+  "😿",
+  "🙀",
+  "🙁",
+  "🙂",
+  "🙃",
+  "🙄",
+  "🙅",
+  "🙈",
+  "🙉",
+  "🙊",
+  "🙋",
+  "🙌",
+  "🙍",
+  "🙏",
+  "🚥",
+  "🚦",
+  "🚫",
+  "🚾",
+  "🛒",
+  "🟠",
+  "🟡",
+  "🟢",
+  "🟣",
+  "🟤",
+  "🟥",
+  "🟦",
+  "🟧",
+  "🟨",
+  "🟩",
+  "🟪",
+  "🟫",
+  "🤌",
+  "🤍",
+  "🤎",
+  "🤏",
+  "🤐",
+  "🤑",
+  "🤒",
+  "🤓",
+  "🤔",
+  "🤕",
+  "🤗",
+  "🤘",
+  "🤙",
+  "🤚",
+  "🤛",
+  "🤜",
+  "🤝",
+  "🤞",
+  "🤟",
+  "🤠",
+  "🤡",
+  "🤢",
+  "🤣",
+  "🤤",
+  "🤥",
+  "🤦",
+  "🤧",
+  "🤨",
+  "🤩",
+  "🤪",
+  "🤫",
+  "🤬",
+  "🤭",
+  "🤮",
+  "🤯",
+  "🤲",
+  "🤷",
+  "🥂",
+  "🥃",
+  "🥇",
+  "🥈",
+  "🥉",
+  "🥑",
+  "🥚",
+  "🥝",
+  "🥰",
+  "🥱",
+  "🥲",
+  "🥳",
+  "🥴",
+  "🥵",
+  "🥶",
+  "🥷",
+  "🥸",
+  "🥺",
+  "🦊",
+  "🧐",
+  "🧡",
+  "🧲",
+  "🩸",
+  "➗",
+  "⭕",
+  "➖",
+  "➕",
+  "⌛",
+  "⏳",
+  "⌧",
+  "⌫",
+  "⌦",
+  "⏏",
+  "⌨",
+  "⌥",
+  "⌘",
+  "⏎",
+  "〠",
+  "⭐",
+  "🅰",
+  "🆎",
+  "🅱",
+  "🅾",
+  "🅿",
+  "〶",
+  "Ⓜ",
+  "○"
+];
+class EmojiInlineTool {
+  static get isInline() {
+    return true;
+  }
+  static get title() {
+    return "Emoji";
+  }
+  static get sanitize() {
+    return {
+      span: true
+    };
+  }
+  static get isTune() {
+    return true;
+  }
+  dropdown;
+  constructor() {
+    this.dropdown = this.createDropdown();
+  }
+  render() {
+    return this.dropdown;
+  }
+  replaceRange() {
+    const range = window?.getSelection()?.getRangeAt(0);
+    if (!range) {
+      console.warn("No range selected");
+      return;
+    }
+    const selectedEmoji = this.dropdown.value;
+    if (!selectedEmoji) {
+      console.warn("No Emoji selected");
+      return;
+    }
+    const span = document.createElement("span");
+    span.textContent = selectedEmoji;
+    span.id = "customEmoji";
+    span.style.fontFamily = "GT Maru Emoji";
+    range.deleteContents();
+    range.insertNode(span);
+  }
+  createDropdown() {
+    const node = document.createElement("div");
+    ReactDOM__default.default.render(
+      /* @__PURE__ */ jsxRuntime.jsx(
+        EmojiPopup,
+        {
+          onSetEmoji: (em) => {
+            this.dropdown.value = em;
+            this.replaceRange();
+          }
+        }
+      ),
+      node
+    );
+    return node;
+  }
+  save() {
+    return {
+      emoji: this.dropdown.value
+    };
+  }
+}
+function EmojiPopup({ onSetEmoji }) {
+  const [selected, setSelected] = React.useState();
+  const [open, setOpen] = React.useState(false);
+  return /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntime.jsx(HoverButton, { onClick: () => setOpen(true) }),
+    open && ReactDOM__default.default.createPortal(
+      /* @__PURE__ */ jsxRuntime.jsx("div", { style: modalParentStyle, children: /* @__PURE__ */ jsxRuntime.jsxs("div", { style: modalChildStyle, children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          "button",
+          {
+            onClick: () => setOpen(false),
+            style: { position: "absolute", top: 10, right: 10 },
+            children: "Luk"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx("h3", { style: { position: "absolute", top: 10, left: 10 }, children: "Vælg emoji" }),
+        /* @__PURE__ */ jsxRuntime.jsx("div", { style: emojiContainerStyle, children: EMOJI_LIST.map((emoji, ind) => /* @__PURE__ */ jsxRuntime.jsx(
+          "button",
+          {
+            onClick: () => setSelected(emoji),
+            style: {
+              ...singleEmojiStyle,
+              backgroundColor: selected === emoji ? "#42FD61" : "white"
+            },
+            children: /* @__PURE__ */ jsxRuntime.jsx("p", { style: { fontSize: 20 }, className: "emoji", children: emoji })
+          },
+          ind
+        )) }),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          "button",
+          {
+            onClick: () => {
+              onSetEmoji(selected ?? "");
+              setOpen(false);
+            },
+            style: selectBtnStyle,
+            children: "Vælg"
+          }
+        )
+      ] }) }),
+      document.body
+    )
+  ] });
+}
+function HoverButton({ onClick }) {
+  const [hover, setHover] = React.useState(false);
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    "button",
+    {
+      className: "emoji",
+      onMouseEnter: () => {
+        setHover(true);
+      },
+      onMouseLeave: () => {
+        setHover(false);
+      },
+      style: {
+        cursor: "pointer",
+        width: 28,
+        height: 28,
+        borderRadius: 4,
+        ...hover ? { backgroundColor: "#f6f6f9" } : null
+      },
+      onClick,
+      children: "😊"
+    }
+  );
+}
+const modalParentStyle = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  zIndex: 1e3
+};
+const modalChildStyle = {
+  position: "fixed",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  backgroundColor: "white",
+  padding: 20,
+  paddingTop: 40,
+  borderRadius: 8,
+  boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
+};
+const selectBtnStyle = {
+  marginTop: 16,
+  backgroundColor: "#3f51b5",
+  color: "white",
+  border: "none",
+  borderRadius: 4,
+  padding: "8px 16px",
+  cursor: "pointer",
+  boxShadow: "0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)",
+  textTransform: "uppercase",
+  fontWeight: "bold"
+};
+const emojiContainerStyle = {
+  display: "flex",
+  flexWrap: "wrap",
+  overflow: "scroll",
+  maxHeight: 400,
+  border: "1px solid #dcdce4",
+  borderRadius: 4
+};
+const singleEmojiStyle = {
+  padding: 4,
+  margin: 4,
+  borderRadius: 4,
+  cursor: "pointer"
+};
+class LinkButton {
+  data = {};
+  nodes = { holder: null };
+  static get toolbox() {
+    return {
+      title: "LinkButton",
+      icon: '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Link"> <path id="Vector" d="M9.1718 14.8288L14.8287 9.17192M7.05086 11.293L5.63664 12.7072C4.07455 14.2693 4.07409 16.8022 5.63619 18.3643C7.19829 19.9264 9.7317 19.9259 11.2938 18.3638L12.7065 16.9498M11.2929 7.05L12.7071 5.63579C14.2692 4.07369 16.8016 4.07397 18.3637 5.63607C19.9258 7.19816 19.9257 9.73085 18.3636 11.2929L16.9501 12.7071" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>'
+    };
+  }
+  constructor({ data }) {
+    this.data = data;
+  }
+  render() {
+    const rootNode = document.createElement("div");
+    this.nodes.holder = rootNode;
+    const onDataChange = (newData) => {
+      this.data = {
+        ...this.data,
+        ...newData
+      };
+    };
+    ReactDOM__default.default.render(/* @__PURE__ */ jsxRuntime.jsx(Btn, { onDataChange, data: this.data }), rootNode);
+    return this.nodes.holder;
+  }
+  save() {
+    return this.data;
+  }
+}
+function Btn({ onDataChange, data }) {
+  return /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
+    /* @__PURE__ */ jsxRuntime.jsx("h3", { children: "LinkButton" }),
+    /* @__PURE__ */ jsxRuntime.jsxs(
+      "div",
+      {
+        style: {
+          display: "flex",
+          flexDirection: "row",
+          gap: "8px"
+        },
+        children: [
+          /* @__PURE__ */ jsxRuntime.jsx(
+            "input",
+            {
+              type: "text",
+              placeholder: "Knap Tekst",
+              defaultValue: data?.linkText || "",
+              onBlur: (e) => onDataChange({ ...data, linkText: e.target.value }),
+              style: {
+                margin: "8px 0",
+                padding: "8px",
+                borderRadius: "4px",
+                border: "1px solid #ccc",
+                width: "40%",
+                boxSizing: "border-box"
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntime.jsx(
+            "input",
+            {
+              type: "url",
+              placeholder: "URL",
+              defaultValue: data?.url || "",
+              onBlur: (e) => onDataChange({ ...data, url: e.target.value }),
+              style: {
+                margin: "8px 0",
+                padding: "8px",
+                borderRadius: "4px",
+                border: "1px solid #ccc",
+                width: "40%",
+                boxSizing: "border-box"
+              }
+            }
+          )
+        ]
+      }
+    )
+  ] });
+}
 let EditorjsFieldNew = ({
   name,
   value,
@@ -1465,28 +2214,35 @@ let EditorjsFieldNew = ({
   id,
   labelAction
 }) => {
-  const editorContainerRef = useRef(null);
-  const editorInstanceRef = useRef(null);
-  const [newEditorInstance, setnewEditorInstance] = useState();
-  const [mediaLibBlockIndex, setMediaLibBlockIndex] = useState(-1);
-  const [isMediaLibOpen, setIsMediaLibOpen] = useState(false);
-  const [mediaLibAttachesBlockIndex, setMediaLibAttachesBlockIndex] = useState(-1);
-  const [isMediaLibAttachesOpen, setIsMediaLibAttachesOpen] = useState(false);
-  const mediaLibToggleFunc = useCallback(
+  const renderTime = (/* @__PURE__ */ new Date()).getTime();
+  const editorContainerRef = React.useRef(null);
+  const editorInstanceRef = React.useRef(null);
+  const [newEditorInstance, setnewEditorInstance] = React.useState();
+  const [mediaLibBlockIndex, setMediaLibBlockIndex] = React.useState(-1);
+  const [isMediaLibOpen, setI] = React.useState(false);
+  const setIsMediaLibOpen = (a) => {
+    const timeDiff = (/* @__PURE__ */ new Date()).getTime() - renderTime;
+    if (timeDiff > 1e3) {
+      setI(a);
+    }
+  };
+  const [mediaLibAttachesBlockIndex, setMediaLibAttachesBlockIndex] = React.useState(-1);
+  const [isMediaLibAttachesOpen, setIsMediaLibAttachesOpen] = React.useState(false);
+  const mediaLibToggleFunc = React.useCallback(
     getToggleFunc({
       openStateSetter: setIsMediaLibOpen,
       indexStateSetter: setMediaLibBlockIndex
     }),
     []
   );
-  const mediaLibAttachesToggleFunc = useCallback(
+  const mediaLibAttachesToggleFunc = React.useCallback(
     getToggleFunc({
       openStateSetter: setIsMediaLibAttachesOpen,
       indexStateSetter: setMediaLibAttachesBlockIndex
     }),
     []
   );
-  const handleMediaLibChange = useCallback(
+  const handleMediaLibChange = React.useCallback(
     (data) => {
       changeFunc({
         indexStateSetter: setMediaLibBlockIndex,
@@ -1498,7 +2254,7 @@ let EditorjsFieldNew = ({
     },
     [mediaLibBlockIndex, newEditorInstance]
   );
-  const handleMediaLibAttachesChange = useCallback(
+  const handleMediaLibAttachesChange = React.useCallback(
     (data) => {
       changeFuncAttaches({
         indexStateSetter: setMediaLibAttachesBlockIndex,
@@ -1528,11 +2284,13 @@ let EditorjsFieldNew = ({
       }
     } : {}
   };
-  useEffect(() => {
+  React.useEffect(() => {
     if (!editorInstanceRef.current && editorContainerRef.current) {
-      const editor = new EditorJS({
+      const editor = new EditorJS__default.default({
         holder: editorContainerRef.current,
         tools: {
+          linkbtn: LinkButton,
+          emomo: EmojiInlineTool,
           ...requiredTools,
           ...customTools(attribute.options, config),
           ...customToolsOther
@@ -1573,8 +2331,8 @@ let EditorjsFieldNew = ({
       }
     };
   }, [config]);
-  return /* @__PURE__ */ jsxs(EdWrap, { children: [
-    /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntime.jsxs(EdWrap, { children: [
+    /* @__PURE__ */ jsxRuntime.jsx(
       SEditor,
       {
         style: {
@@ -1584,7 +2342,7 @@ let EditorjsFieldNew = ({
         ref: editorContainerRef
       }
     ),
-    /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsxRuntime.jsx(
       MediaLibComponent,
       {
         isOpen: isMediaLibOpen,
@@ -1593,7 +2351,7 @@ let EditorjsFieldNew = ({
         allowedTypes: ["images"]
       }
     ),
-    /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsxRuntime.jsx(
       MediaLibComponent,
       {
         isOpen: isMediaLibAttachesOpen,
@@ -1604,15 +2362,37 @@ let EditorjsFieldNew = ({
     )
   ] });
 };
-EditorjsFieldNew = memo(EditorjsFieldNew);
-const SEditor = styled.div`
+EditorjsFieldNew = React.memo(EditorjsFieldNew);
+const SEditor = styled__default.default.div`
   width: 100%;
 `;
-const EdWrap = styled.div`
+const EdWrap = styled__default.default.div`
   width: 100%;
 `;
 const EditorjsField = EditorjsFieldNew;
-const SStyleWrapper = styled(Box)`
+const loadCSS = (href) => {
+  return new Promise((resolve, reject) => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    link.onload = () => resolve();
+    link.onerror = () => reject(new Error(`Failed to load CSS: ${href}`));
+    document.head.appendChild(link);
+  });
+};
+function useLoadCss() {
+  const [loadedCss, setLoadedCss] = React.useState(false);
+  React.useEffect(() => {
+    loadCSS("/editorjsStyles.css").then(() => {
+      setLoadedCss(true);
+    }).catch((error) => {
+      console.error(error);
+      setLoadedCss(true);
+    });
+  }, []);
+  return { loadedCss };
+}
+const SStyleWrapper = styled__default.default(designSystem.Box)`
   width: 100%;
 
   .codex-editor__redactor {
@@ -1842,7 +2622,7 @@ const SStyleWrapper = styled(Box)`
     border: 1px solid ${({ theme }) => theme.colors.neutral200};
   }
 `;
-const Editorjs = React__default.forwardRef(
+const Editorjs = React__namespace.default.forwardRef(
   ({
     name,
     description,
@@ -1855,11 +2635,12 @@ const Editorjs = React__default.forwardRef(
     placeholder,
     error
   }, ref) => {
-    const { formatMessage } = useIntl();
+    const { loadedCss } = useLoadCss();
+    const { formatMessage } = reactIntl.useIntl();
     const { config, isLoading } = usePluginConfig();
-    const [uniqueKey, setUniqueKey] = useState(null);
-    const [transitionEnded, setTransitionEnded] = useState(false);
-    const nodeRef = useRef(null);
+    const [uniqueKey, setUniqueKey] = React.useState(null);
+    const [transitionEnded, setTransitionEnded] = React.useState(false);
+    const nodeRef = React.useRef(null);
     const createKeyFromURL = () => {
       const url = new URL(window.location.href);
       const locale = url.searchParams.get("plugins[i18n][locale]");
@@ -1875,7 +2656,7 @@ const Editorjs = React__default.forwardRef(
       const key = createKeyFromURL();
       setUniqueKey(key);
     };
-    useEffect(() => {
+    React.useEffect(() => {
       const handleTransitionEnd = () => {
         setTransitionEnded(true);
       };
@@ -1894,27 +2675,29 @@ const Editorjs = React__default.forwardRef(
         observer.disconnect();
       };
     }, []);
-    useEffect(() => {
+    React.useEffect(() => {
       if (transitionEnded && value) {
         updateKey();
         setTransitionEnded(false);
       }
     }, [transitionEnded, value]);
-    return /* @__PURE__ */ jsx(
+    if (!loadedCss)
+      return null;
+    return /* @__PURE__ */ jsxRuntime.jsx(
       SStyleWrapper,
       {
         ref: nodeRef,
         className: error && error !== "" ? "error" : null,
-        children: /* @__PURE__ */ jsx(
-          Field.Root,
+        children: /* @__PURE__ */ jsxRuntime.jsx(
+          designSystem.Field.Root,
           {
             id: name,
             name,
             hint: description && formatMessage(description),
             required: attribute.required,
             error,
-            children: config && !isLoading ? /* @__PURE__ */ jsxs(
-              Flex,
+            children: config && !isLoading ? /* @__PURE__ */ jsxRuntime.jsxs(
+              designSystem.Flex,
               {
                 direction: {
                   initial: "column"
@@ -1923,8 +2706,8 @@ const Editorjs = React__default.forwardRef(
                   gap: "4px"
                 },
                 children: [
-                  /* @__PURE__ */ jsx(
-                    Field.Label,
+                  /* @__PURE__ */ jsxRuntime.jsx(
+                    designSystem.Field.Label,
                     {
                       action: labelAction,
                       style: {
@@ -1933,7 +2716,7 @@ const Editorjs = React__default.forwardRef(
                       children: "Brødtekst"
                     }
                   ),
-                  /* @__PURE__ */ jsx(
+                  /* @__PURE__ */ jsxRuntime.jsx(
                     EditorjsField,
                     {
                       intlLabel,
@@ -1950,8 +2733,8 @@ const Editorjs = React__default.forwardRef(
                       config
                     }
                   ),
-                  /* @__PURE__ */ jsx(Field.Hint, {}),
-                  /* @__PURE__ */ jsx(Field.Error, {})
+                  /* @__PURE__ */ jsxRuntime.jsx(designSystem.Field.Hint, {}),
+                  /* @__PURE__ */ jsxRuntime.jsx(designSystem.Field.Error, {})
                 ]
               }
             ) : null
@@ -1962,7 +2745,5 @@ const Editorjs = React__default.forwardRef(
     );
   }
 );
-export {
-  Editorjs
-};
-//# sourceMappingURL=Editorjs-Bfr2YNM2.mjs.map
+exports.Editorjs = Editorjs;
+//# sourceMappingURL=Editorjs-Br784y6v.js.map

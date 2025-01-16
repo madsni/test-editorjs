@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import { usePluginConfig } from '../../hooks/usePluginConfig';
 import EditorjsField from '../editorjs_field/EditorjsField';
+import { useLoadCss } from '../tools/utils/loadcss';
 import { SStyleWrapper } from './styles';
 
 interface IEditorjs {
@@ -36,6 +37,8 @@ export const Editorjs = React.forwardRef(
     }: IEditorjs,
     ref: React.Ref<any>
   ) => {
+    const { loadedCss } = useLoadCss();
+
     const { formatMessage } = useIntl();
     const { config, isLoading } = usePluginConfig();
     const [uniqueKey, setUniqueKey] = useState<string | null>(null);
@@ -91,6 +94,8 @@ export const Editorjs = React.forwardRef(
         setTransitionEnded(false);
       }
     }, [transitionEnded, value]);
+
+    if (!loadedCss) return null;
 
     return (
       <SStyleWrapper

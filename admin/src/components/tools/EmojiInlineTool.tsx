@@ -51,6 +51,7 @@ export class EmojiInlineTool implements InlineTool {
     const span = document.createElement('span');
     span.textContent = selectedEmoji;
     span.id = 'customEmoji';
+    span.style.fontFamily = 'GT Maru Emoji';
     range.deleteContents();
     range.insertNode(span);
   }
@@ -83,9 +84,7 @@ function EmojiPopup({ onSetEmoji }: { onSetEmoji: (emoji: string) => void }) {
 
   return (
     <>
-      <button onClick={() => setOpen(true)} className="emoji">
-        😊
-      </button>
+      <HoverButton onClick={() => setOpen(true)} />
       {open &&
         ReactDOM.createPortal(
           <div style={modalParentStyle}>
@@ -127,6 +126,32 @@ function EmojiPopup({ onSetEmoji }: { onSetEmoji: (emoji: string) => void }) {
           document.body
         )}
     </>
+  );
+}
+
+function HoverButton({ onClick }: { onClick: () => void }) {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <button
+      className="emoji"
+      onMouseEnter={() => {
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+      }}
+      style={{
+        cursor: 'pointer',
+        width: 28,
+        height: 28,
+        borderRadius: 4,
+        ...(hover ? { backgroundColor: '#f6f6f9' } : null),
+      }}
+      onClick={onClick}
+    >
+      😊
+    </button>
   );
 }
 

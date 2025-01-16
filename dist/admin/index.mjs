@@ -1,4 +1,4 @@
-import { i } from "../_chunks/index-CAiDSh1O.mjs";
+import { i } from "../_chunks/index-Cub7IGU-.mjs";
 export {
   i as default
 };
