@@ -1,66 +1,67 @@
-
-declare module "@strapi/design-system";
+declare module '@strapi/design-system';
 declare module '@strapi/design-system/*';
-declare module "@strapi/icons";
+declare module '@strapi/icons';
 declare module '@strapi/icons/*';
 
-declare module "@editorjs/checklist" {
-  import CheckList from "@editorjs/checklist";
+declare module 'editorjs-vocabularytune';
+
+declare module '@editorjs/checklist' {
+  import CheckList from '@editorjs/checklist';
   export = CheckList;
 }
 
-declare module "@editorjs/code" {
-  import Code from "@editorjs/code";
+declare module '@editorjs/code' {
+  import Code from '@editorjs/code';
   export = Code;
 }
 
-declare module "@editorjs/delimiter" {
-  import Delimiter from "@editorjs/delimiter";
+declare module '@editorjs/delimiter' {
+  import Delimiter from '@editorjs/delimiter';
   export = Delimiter;
 }
 
-declare module "@editorjs/embed" {
-  import Embed from "@editorjs/embed";
+declare module '@editorjs/embed' {
+  import Embed from '@editorjs/embed';
   export = Embed;
 }
 
-declare module "@editorjs/header" {
-  import Header from "@editorjs/header";
+declare module '@editorjs/header' {
+  import Header from '@editorjs/header';
   export = Header;
 }
 
-declare module "@editorjs/inline-code" {
-  import InlineCode from "@editorjs/inline-code";
+declare module '@editorjs/inline-code' {
+  import InlineCode from '@editorjs/inline-code';
   export = InlineCode;
 }
 
-declare module "@editorjs/link" {
-  import Link from "@editorjs/link";
+declare module '@editorjs/link' {
+  import Link from '@editorjs/link';
   export = Link;
 }
 
-declare module "@editorjs/list" {
-  import List from "@editorjs/list";
+declare module '@editorjs/list' {
+  import List from '@editorjs/list';
   export = List;
 }
 
-declare module "@editorjs/marker" {
-  import Marker from "@editorjs/marker";
+declare module '@editorjs/marker' {
+  import Marker from '@editorjs/marker';
   export = Marker;
 }
 
-declare module "@editorjs/quote" {
-  import Quote from "@editorjs/quote";
+declare module '@editorjs/quote' {
+  import Quote from '@editorjs/quote';
   export = Quote;
 }
 
-declare module "@editorjs/raw" {
-  import Raw from "@editorjs/raw";
+declare module '@editorjs/raw' {
+  import Raw from '@editorjs/raw';
   export = Raw;
 }
 
-declare module "@editorjs/warning" {
-  import Warning from "@editorjs/warning";
+declare module '@editorjs/warning' {
+  import Warning from '@editorjs/warning';
   export = Warning;
 }
 
@@ -69,27 +70,27 @@ declare module "@editorjs/warning" {
 //   export = ComponentSelectorTool;
 // }
 
-declare module "@editorjs/table" {
-  import Table from "@editorjs/table";
+declare module '@editorjs/table' {
+  import Table from '@editorjs/table';
   export = Table;
 }
 
-declare module "@editorjs/paragraph" {
-  import Paragraph from "@editorjs/paragraph";
+declare module '@editorjs/paragraph' {
+  import Paragraph from '@editorjs/paragraph';
   export = Paragraph;
 }
 
-declare module "@editorjs/attaches" {
-  import Attaches from "@editorjs/attaches";
+declare module '@editorjs/attaches' {
+  import Attaches from '@editorjs/attaches';
   export = Attaches;
 }
 
-declare module "@editorjs/image" {
-  import Image from "@editorjs/image";
+declare module '@editorjs/image' {
+  import Image from '@editorjs/image';
   export = Image;
 }
 
-declare module "@editorjs/nested-list" {
-  import NestedList from "@editorjs/nested-list";
+declare module '@editorjs/nested-list' {
+  import NestedList from '@editorjs/nested-list';
   export = NestedList;
 }

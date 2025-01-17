@@ -1,8 +1,8 @@
 import EditorJS, { API, ToolConstructable, ToolSettings } from '@editorjs/editorjs';
+import VocabularyAutocomplete from 'editorjs-vocabularytune';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { MessageDescriptor } from 'react-intl';
 import styled from 'styled-components';
-
 import { customTools } from '../../config/customTools';
 import { requiredTools } from '../../config/requiredTools';
 import { MediaLibAdapter } from '../medialib/adapter';
@@ -137,6 +137,14 @@ let EditorjsFieldNew: React.FC<IEditorjsField> = ({
         tools: {
           linkbtn: LinkButton,
           emomo: EmojiInlineTool,
+          vocabulary: {
+            class: VocabularyAutocomplete,
+            config: {
+              endpoint: '/pco-strapi-editorjs-plugin/vocabulary-lookup',
+              queryParam: 'query',
+              // change this to the one from strapi api
+            },
+          },
           ...requiredTools,
           ...customTools(attribute.options, config),
           ...customToolsOther,

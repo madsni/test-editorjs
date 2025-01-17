@@ -32,6 +32,31 @@ export default {
         advanced: [
           {
             sectionTitle: {
+              id: 'editorjs.options.search',
+              defaultMessage: 'Vocabulary Search (only for development)',
+            },
+            items: [
+              {
+                name: 'options.token',
+                type: 'text',
+                intlLabel: {
+                  id: 'editorjs.options.token',
+                  defaultMessage: 'Bearer token (only for development)', // we dont need token when on own server
+                },
+              },
+              {
+                name: 'options.basePath',
+                type: 'text',
+                intlLabel: {
+                  id: 'editorjs.options.basePath',
+                  defaultMessage:
+                    'overwrite basePath (ie. http://localhost:1337/api/vocabularies) (only for development)',
+                },
+              },
+            ],
+          },
+          {
+            sectionTitle: {
               id: 'editorjs.tools.settings',
               defaultMessage: 'Tools settings, enabling / disabling tools',
             },
@@ -64,99 +89,9 @@ export default {
                 },
               },
               {
-                name: 'options.embed',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.embed',
-                  defaultMessage: 'Embed',
-                },
-              },
-              {
-                name: 'options.table',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.table',
-                  defaultMessage: 'Table',
-                },
-              },
-              {
-                name: 'options.warning',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.warning',
-                  defaultMessage: 'Warning',
-                },
-              },
-              {
-                name: 'options.code',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.code',
-                  defaultMessage: 'Code',
-                },
-              },
-              {
-                name: 'options.link_tool',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.link_tool',
-                  defaultMessage: 'Link tool',
-                },
-              },
-              {
-                name: 'options.raw',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.raw',
-                  defaultMessage: 'Raw',
-                },
-              },
-              {
-                name: 'options.quote',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.quote',
-                  defaultMessage: 'Quote',
-                },
-              },
-              {
-                name: 'options.marker',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.marker',
-                  defaultMessage: 'Marker',
-                },
-              },
-              {
-                name: 'options.delimiter',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.delimiter',
-                  defaultMessage: 'Delimiter',
-                },
-              },
-              {
-                name: 'options.inlineCode',
-                type: 'checkbox',
-                defaultValue: true,
-                intlLabel: {
-                  id: 'editorjs.tools.settings.inlineCode',
-                  defaultMessage: 'Inline Code',
-                },
-              },
-              {
                 name: 'options.image',
                 type: 'checkbox',
-                defaultValue: true,
+                defaultValue: false,
                 intlLabel: {
                   id: 'editorjs.tools.settings.image',
                   defaultMessage: 'Image',
@@ -172,34 +107,105 @@ export default {
                 },
               },
               {
-                name: 'options.component',
+                name: 'options.raw',
                 type: 'checkbox',
-                defaultValue: false,
+                defaultValue: true,
                 intlLabel: {
-                  id: 'editorjs.tools.settings.component',
-                  defaultMessage: 'Component selector',
+                  id: 'editorjs.tools.settings.raw',
+                  defaultMessage: 'Raw',
                 },
               },
-            ],
-          },
-          {
-            sectionTitle: {
-              id: 'global.settings',
-              defaultMessage: 'Settings',
-            },
-            items: [
               {
-                name: 'required',
+                name: 'options.marker',
                 type: 'checkbox',
+                defaultValue: true,
                 intlLabel: {
-                  id: getTranslation('editorjs.options.advanced.requiredField'),
-                  defaultMessage: 'Required field',
-                },
-                description: {
-                  id: getTranslation('editorjs.options.advanced.requiredField.description'),
-                  defaultMessage: "You won't be able to create an entry if this field is empty",
+                  id: 'editorjs.tools.settings.marker',
+                  defaultMessage: 'Marker',
                 },
               },
+              // {
+              //   name: 'options.embed',
+              //   type: 'checkbox',
+              //   defaultValue: true,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.embed',
+              //     defaultMessage: 'Embed',
+              //   },
+              // },
+              // {
+              //   name: 'options.table',
+              //   type: 'checkbox',
+              //   defaultValue: true,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.table',
+              //     defaultMessage: 'Table',
+              //   },
+              // },
+              // {
+              //   name: 'options.warning',
+              //   type: 'checkbox',
+              //   defaultValue: true,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.warning',
+              //     defaultMessage: 'Warning',
+              //   },
+              // },
+              // {
+              //   name: 'options.code',
+              //   type: 'checkbox',
+              //   defaultValue: true,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.code',
+              //     defaultMessage: 'Code',
+              //   },
+              // },
+              // {
+              //   name: 'options.link_tool',
+              //   type: 'checkbox',
+              //   defaultValue: true,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.link_tool',
+              //     defaultMessage: 'Link tool',
+              //   },
+              // },
+              // {
+              //   name: 'options.quote',
+              //   type: 'checkbox',
+              //   defaultValue: true,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.quote',
+              //     defaultMessage: 'Quote',
+              //   },
+              // },
+
+              // {
+              //   name: 'options.delimiter',
+              //   type: 'checkbox',
+              //   defaultValue: true,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.delimiter',
+              //     defaultMessage: 'Delimiter',
+              //   },
+              // },
+              // {
+              //   name: 'options.inlineCode',
+              //   type: 'checkbox',
+              //   defaultValue: true,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.inlineCode',
+              //     defaultMessage: 'Inline Code',
+              //   },
+              // },
+              // {
+              //   name: 'options.component',
+              //   type: 'checkbox',
+              //   defaultValue: false,
+              //   intlLabel: {
+              //     id: 'editorjs.tools.settings.component',
+              //     defaultMessage: 'Component selector',
+              //   },
+              // },
             ],
           },
         ],

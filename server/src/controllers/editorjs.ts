@@ -1,13 +1,12 @@
-import { Context } from "koa";
 import type { Core } from '@strapi/strapi';
 import ogs from 'open-graph-scraper';
 // import { parseMultipartData } from "@strapi/utils";
-import axios from "axios";
-import fs from "fs";
-import path from "path";
-import { LocalFileData } from "get-file-object-from-local-path";
-import { getService } from "../utils";
-import { PassThrough } from "stream";
+import axios from 'axios';
+import fs from 'fs';
+import { LocalFileData } from 'get-file-object-from-local-path';
+import path from 'path';
+import { PassThrough } from 'stream';
+import { getService } from '../utils';
 
 // interface CustomSuccessResult extends SuccessResult {
 //   error: false;
@@ -22,55 +21,72 @@ import { PassThrough } from "stream";
 // }
 
 export default ({ strapi }: { strapi: Core.Strapi }) => ({
-
   config: async (ctx) => {
-    const config = await getService("plugin").getConfig();
+    const config = await getService('plugin').getConfig();
     ctx.send(config);
   },
 
+  vocabulary: async (ctx) => {
+    const { query } = ctx.query;
+
+    const res = await strapi.entityService.findMany('api::vocabulary.vocabulary', {
+      filters: {
+        name: {
+          $containsi: query,
+        },
+      },
+    });
+
+    // We need to remake it, so it better matches the format expected
+    const data = res.map((item) => ({
+      ...item,
+      attributes: {
+        ...item,
+        Name: item.name,
+        Description: item.description,
+        Image: item.image,
+      },
+    }));
+
+    ctx.send({ data });
+  },
+
   link: async (ctx) => {
-    const result = await new Promise<{ success: number; meta: any }>(
-      (resolve) => {
+    const result = await new Promise<{ success: number; meta: any }>((resolve) => {
+      // resolve({
+      //   success: 1,
+      //   meta: {
+      //     title: 'broken',
+      //     description: 'broken',
+      //     image: 'broken',
+      //   },
+      // });
 
+      // @ts-ignore
+      ogs(ctx.query, (error, results, response: PassThrough) => {
+        console.log('error:', error);
+        console.log('results:', results);
+        console.log('response:', response);
 
-        // resolve({
-        //   success: 1,
-        //   meta: {
-        //     title: 'broken',
-        //     description: 'broken',
-        //     image: 'broken',
-        //   },
-        // });
+        if (error || !('ogTitle' in results)) {
+          resolve({ success: 0, meta: {} });
+          return;
+        }
+        const customResults = results;
+        const imageUrl = customResults.ogImage?.url
+          ? { url: customResults.ogImage.url }
+          : undefined;
 
-        // @ts-ignore
-        ogs(ctx.query, (error, results, response: PassThrough) => {
-
-          console.log('error:', error);
-          console.log('results:', results);
-          console.log('response:', response);
-
-          if (error || !("ogTitle" in results)) {
-            resolve({ success: 0, meta: {} });
-            return;
-          }
-          const customResults = results;
-          const imageUrl = customResults.ogImage?.url
-            ? { url: customResults.ogImage.url }
-            : undefined;
-
-          resolve({
-            success: 1,
-            meta: {
-              title: customResults.ogTitle,
-              description: customResults.ogDescription,
-              image: imageUrl,
-            },
-          });
+        resolve({
+          success: 1,
+          meta: {
+            title: customResults.ogTitle,
+            description: customResults.ogDescription,
+            image: imageUrl,
+          },
         });
-
-
-      }
-    );
+      });
+    });
 
     ctx.send(result);
   },
@@ -79,11 +95,11 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     console.log('byFile');
     try {
       // const { files } = parseMultipartData(ctx);
-      const { files } = ctx
+      const { files } = ctx;
 
       const [uploadedFile] = await strapi
-        .plugin("upload")
-        .service("upload")
+        .plugin('upload')
+        .service('upload')
         .upload({
           data: {},
           files: Object.values(files),
@@ -111,8 +127,8 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
       const { name, ext } = path.parse(url);
       const filePath = `./public/${name}${ext}`;
 
-      const response = await axios.get(url, { responseType: "arraybuffer" });
-      const buffer = Buffer.from(response.data, "binary");
+      const response = await axios.get(url, { responseType: 'arraybuffer' });
+      const buffer = Buffer.from(response.data, 'binary');
 
       await fs.promises.writeFile(filePath, buffer);
 
@@ -125,13 +141,10 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
         size: Buffer.byteLength(buffer),
       };
 
-      const [uploadedFile] = await strapi
-        .plugin("upload")
-        .service("upload")
-        .upload({
-          data: {},
-          files: file,
-        });
+      const [uploadedFile] = await strapi.plugin('upload').service('upload').upload({
+        data: {},
+        files: file,
+      });
 
       await fs.promises.unlink(filePath);
 
