@@ -1,8 +1,8 @@
 import ogs from "open-graph-scraper";
 import axios from "axios";
 import fs from "fs";
-import path from "path";
 import { LocalFileData } from "get-file-object-from-local-path";
+import path from "path";
 const bootstrap = ({ strapi: strapi2 }) => {
 };
 const destroy = ({ strapi: strapi2 }) => {
@@ -49,30 +49,48 @@ const upload = ({ strapi: strapi2 }) => ({
     const config2 = await getService("plugin").getConfig();
     ctx.send(config2);
   },
-  link: async (ctx) => {
-    const result = await new Promise(
-      (resolve) => {
-        ogs(ctx.query, (error, results, response) => {
-          console.log("error:", error);
-          console.log("results:", results);
-          console.log("response:", response);
-          if (error || !("ogTitle" in results)) {
-            resolve({ success: 0, meta: {} });
-            return;
-          }
-          const customResults = results;
-          const imageUrl = customResults.ogImage?.url ? { url: customResults.ogImage.url } : void 0;
-          resolve({
-            success: 1,
-            meta: {
-              title: customResults.ogTitle,
-              description: customResults.ogDescription,
-              image: imageUrl
-            }
-          });
-        });
+  vocabulary: async (ctx) => {
+    const { query } = ctx.query;
+    const res = await strapi2.entityService.findMany("api::vocabulary.vocabulary", {
+      filters: {
+        name: {
+          $containsi: query
+        }
       }
-    );
+    });
+    const data = res.map((item) => ({
+      ...item,
+      attributes: {
+        ...item,
+        Name: item.name,
+        Description: item.description,
+        Image: item.image
+      }
+    }));
+    ctx.send({ data });
+  },
+  link: async (ctx) => {
+    const result = await new Promise((resolve) => {
+      ogs(ctx.query, (error, results, response) => {
+        console.log("error:", error);
+        console.log("results:", results);
+        console.log("response:", response);
+        if (error || !("ogTitle" in results)) {
+          resolve({ success: 0, meta: {} });
+          return;
+        }
+        const customResults = results;
+        const imageUrl = customResults.ogImage?.url ? { url: customResults.ogImage.url } : void 0;
+        resolve({
+          success: 1,
+          meta: {
+            title: customResults.ogTitle,
+            description: customResults.ogDescription,
+            image: imageUrl
+          }
+        });
+      });
+    });
     ctx.send(result);
   },
   byFile: async (ctx) => {
@@ -149,6 +167,15 @@ const routes = {
         // config: {
         //   policies: ["admin::isAuthenticatedAdmin"],
         // },
+      },
+      {
+        method: "GET",
+        path: "/vocabulary-lookup",
+        handler: "editorjs.vocabulary",
+        config: {
+          policies: [],
+          auth: false
+        }
       }
     ]
   },

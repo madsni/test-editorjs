@@ -1,13 +1,22 @@
 declare const _default: {
     editorjs: {
         type: string;
-        routes: {
+        routes: ({
             method: string;
             path: string;
             handler: string;
-        }[];
+            config?: undefined;
+        } | {
+            method: string;
+            path: string;
+            handler: string;
+            config: {
+                policies: any[];
+                auth: boolean;
+            };
+        })[];
     };
-    "content-api": {
+    'content-api': {
         type: string;
         routes: ({
             method: string;
