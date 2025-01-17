@@ -1,6 +1,6 @@
 {
   "name": "editorjs-strapi-plugin",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "EditorJS plugin for Strapi",
   "keywords": [],
   "license": "MIT",
